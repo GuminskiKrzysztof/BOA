@@ -21,17 +21,54 @@ namespace BOA
             ret += ret1;
             return ret;
         }
+
+        static double Sphere(double[] xi)
+        {
+            double ret = 0;
+            foreach (double x in xi)
+            {
+                ret += Math.Pow(x,2);
+            }
+            return ret;
+        }
+
+        static double Rastrigin(double[] xi)
+        {
+            double ret = 0;
+            foreach (double x in xi)
+            {
+                ret += (Math.Pow(x, 2)-10*Math.Cos(2*Math.PI*x)+10);
+            }
+            return ret;
+        }
+
+        static double Rosenbrock(double[] xi)
+        {
+            double ret = 0;
+            for( int i = 0; i < xi.Length-1; i++)
+            {
+                ret += (100*Math.Pow(xi[i+1]- Math.Pow(xi[i],2),2)+ Math.Pow(xi[i]-1,2));
+            }
+            return ret;
+        }
+
         static void Main(string[] args)
         {
-            int[,]  range = new  int[4,2];
-            for(int i = 0; i < 4; i++)
+           
+            int[] N = { 10, 20, 40, 80 };
+            int[] I = { 5, 10, 20, 40, 60, 80};
+            foreach(int n in N)
             {
-                range[i, 0] = -10;
-                range[i, 1] = 10;
+                foreach (int i in I)
+                {
+                    Butterfly but = new Butterfly(Rosenbrock, n, i, -10,10, 30, 0.1, 0.01, 0.8);
+                    but.Solve();
+                    Console.WriteLine("N: "+ n.ToString()+" I: "+i.ToString()+ " Value: "+but.FBest.ToString());
+                }
             }
-       
-            Butterfly but = new Butterfly(f1,4,500,range,30,0.1,0.01, 0.8);
-            but.Solve();
+
+           
+            
             
         }
        

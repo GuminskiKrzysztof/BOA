@@ -22,24 +22,34 @@ namespace BOA
         private double[] Ii;
         private double[] Fi;
         private double a;
+        private double initial_a;
         private double c;
         private double p;
         Func<double[], double> test_func;
 
-        public Butterfly(Func<double[], double> myFuncion,int dim_in,int iterations_in, int[,] range_in,int population_size_in,double a_in, double c_in,double p_in)
+        public Butterfly(Func<double[], double> myFuncion,int dim_in,int iterations_in, int range_min,int range_max,int population_size_in,double a_in, double c_in,double p_in)
         {   
             Name = "Butterfly optimization algorithm";
-            range = range_in;
+
             population_size = population_size_in;
             dim = dim_in;
             a = a_in;
+            initial_a = a;
             c = c_in;
             p = p_in;
             iterations = iterations_in;
             test_func = myFuncion;
+
+            range = new int[dim, 2];
+            for (int i = 0; i < dim; i++)
+            {
+                range[i, 0] = range_min;
+                range[i, 1] = range_max;
+            }
         }
         private void  CreatePopulation()
         {
+           
             Random rand = new Random();
             population = new double[population_size,dim];
             for (int i = 0; i < population_size; i++)
@@ -136,14 +146,11 @@ namespace BOA
                 CalculateFragrance();
                 FindBest();
                 CalculateNextPosition();
-                Console.WriteLine(FBest);
-                Console.WriteLine(string.Join(", ", XBest));
-                Console.WriteLine();
-                a = 0.1 + (i / (double)iterations) * (0.3 - 0.1);
+                a = initial_a + (i / (double)iterations) * initial_a;
 
             }
 
-            return 0.2;
+            return FBest;
         }
     }
 }
