@@ -24,9 +24,15 @@ namespace BOA
         static void Main(string[] args)
         {
             int[,]  range = new  int[4,2];
+            for(int i = 0; i < 4; i++)
+            {
+                range[i, 0] = -10;
+                range[i, 1] = 10;
+            }
        
-            Butterfly but = new Butterfly(f1,4,100,range,20);
-            Console.WriteLine("Hello World!");
+            Butterfly but = new Butterfly(f1,4,500,range,30,0.1,0.01, 0.8);
+            but.Solve();
+            
         }
        
        
