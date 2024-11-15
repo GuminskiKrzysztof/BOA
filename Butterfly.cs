@@ -79,7 +79,7 @@ namespace BOA
                     {
                         row[j] = population[i, j];
                     }
-                    XBest = row;
+                    XBest = (double[])row.Clone();
                 }
                 
             }
@@ -97,15 +97,17 @@ namespace BOA
         {
             Random rand = new Random();
             double r;
+            double[] pop = new double[dim];
             int rand_butterfly;
             for ( int i = 0; i < population_size; i++)
             {
+            
                 r = rand.NextDouble();
                 if (p > r)
                 {
                     for( int j = 0; j < dim;j++)
                     {
-                        population[i, j] = population[i, j] + (Math.Pow(r,2)* XBest[j] - population[i, j]) * Fi[i];
+                        pop[j] = population[i, j] + (Math.Pow(r,2)* XBest[j] - population[i, j]) * Fi[i];
                     }
                 }
                 else 
@@ -113,7 +115,14 @@ namespace BOA
                     rand_butterfly = rand.Next(population_size);
                     for (int j = 0; j < dim; j++)
                     {
-                        population[i, j] = population[i, j] + (Math.Pow(r, 2) * population[rand_butterfly, j] - population[i, j]) * Fi[i];
+                        pop[j] = population[i, j] + (Math.Pow(r, 2) * population[rand_butterfly, j] - population[i, j]) * Fi[i];
+                    }
+                }
+                if(Ii[i] > test_func(pop))
+                {
+                    for (int t = 0; t < dim;t++)
+                    {
+                        population[i, t] = pop[t];
                     }
                 }
             }
@@ -146,7 +155,8 @@ namespace BOA
                 CalculateFragrance();
                 FindBest();
                 CalculateNextPosition();
-                a = initial_a + (i / (double)iterations) * initial_a;
+
+                a = initial_a  + (i / (double)iterations) * initial_a * 2;
 
             }
 
