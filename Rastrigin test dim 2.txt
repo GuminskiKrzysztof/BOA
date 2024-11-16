@@ -1,0 +1,358 @@
+Name: Rastrigin
+Test number: 200
+Population size:10
+Dimentions:2
+Iteration number:5
+A:0,02
+C:0,1
+P:0,7
+Mean: 0,10955895700311637
+Std: 0,002328837914492662
+ Mean position: 0,11482043637808802 Mean position: -0,25513614810559804
+ Std positon: 0,07485491934246487 Std positon: 0,25564649165172143
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:10
+Dimentions:2
+Iteration number:10
+A:0,02
+C:0,1
+P:0,8
+Mean: 0,1126206742658218
+Std: 0,0034554503176466534
+ Mean position: -0,01707993645207364 Mean position: 0,2054081737176084
+ Std positon: 0,11318109943051892 Std positon: 0,049726020640972673
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:10
+Dimentions:2
+Iteration number:20
+A:0,25
+C:0,5
+P:0,4
+Mean: 0,027459185703511094
+Std: 0,02330377260540299
+ Mean position: -0,0006727807021421926 Mean position: 7,283601532976298E-05
+ Std positon: 0,00016457517284690563 Std positon: 0,0004988003469767399
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:10
+Dimentions:2
+Iteration number:40
+A:0,2
+C:0,7
+P:0,6
+Mean: 0,007336890936250856
+Std: 0,0032943833635628345
+ Mean position: -6,763394725400117E-05 Mean position: 7,724337479442793E-05
+ Std positon: 5,9762607394215194E-05 Std positon: 0,00011463303356350936
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:10
+Dimentions:2
+Iteration number:60
+A:0,2
+C:0,8
+P:0,7
+Mean: 0,002802596863265292
+Std: 0,0012593171211574467
+ Mean position: -1,3715654650402698E-06 Mean position: -4,429744541546545E-05
+ Std positon: 1,0463790140564456E-05 Std positon: 3,894341703346424E-05
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:10
+Dimentions:2
+Iteration number:80
+A:0,2
+C:0,8
+P:0,8
+Mean: 0,0014834615787301226
+Std: 0,0005513791869843404
+ Mean position: -1,5501377704647004E-05 Mean position: -3,506051997405754E-07
+ Std positon: 6,4402391551182674E-06 Std positon: 1,433006334881569E-05
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:20
+Dimentions:2
+Iteration number:5
+A:0,02
+C:0,1
+P:0,4
+Mean: 0,10850638536675122
+Std: 0,0024687837640858185
+ Mean position: 0,03843571672281483 Mean position: 0,07032003732981719
+ Std positon: 0,20049020953688831 Std positon: 0,004264356831141175
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:20
+Dimentions:2
+Iteration number:10
+A:0,02
+C:0,1
+P:0,5
+Mean: 0,11181647772222619
+Std: 0,0030692844629790867
+ Mean position: -0,19012808091273528 Mean position: -0,040357905253713966
+ Std positon: 0,15518393018236978 Std positon: 0,13785417144566467
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:20
+Dimentions:2
+Iteration number:20
+A:0,2
+C:0,6
+P:0,5
+Mean: 0,03770102468033085
+Std: 0,0903524038630634
+ Mean position: 1,6660414514626724E-05 Mean position: 0,0059133277913296246
+ Std positon: 0,0002035824800235132 Std positon: 0,00030309611261798936
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:20
+Dimentions:2
+Iteration number:40
+A:0,25
+C:0,5
+P:0,4
+Mean: 0,007300115670510468
+Std: 0,01310168118748891
+ Mean position: 7,526777760991721E-05 Mean position: 0,00030895582167509924
+ Std positon: 0,00016884646695989003 Std positon: 6,415954156200964E-05
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:20
+Dimentions:2
+Iteration number:60
+A:0,15
+C:0,8
+P:0,5
+Mean: 0,004323508344003896
+Std: 0,0016591894876680745
+ Mean position: -8,04957385168206E-06 Mean position: -1,2824934236322896E-05
+ Std positon: 1,225416844700799E-05 Std positon: 4,222030449915421E-06
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:20
+Dimentions:2
+Iteration number:80
+A:0,2
+C:0,8
+P:0,6
+Mean: 0,001471179523529773
+Std: 0,001105628611219881
+ Mean position: -1,2313007707890364E-05 Mean position: -1,022956911930433E-05
+ Std positon: 1,8363199918039208E-06 Std positon: 1,6541482121179845E-05
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:40
+Dimentions:2
+Iteration number:5
+A:0,02
+C:0,1
+P:0,4
+Mean: 0,10771045628951895
+Std: 0,002191531466803655
+ Mean position: -0,011899698380611263 Mean position: 0,08835095413299938
+ Std positon: 0,05870008604742733 Std positon: 0,05038441618719347
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:40
+Dimentions:2
+Iteration number:10
+A:0,02
+C:0,1
+P:0,7
+Mean: 0,1103908889783264
+Std: 0,00321914262037771
+ Mean position: -0,03935755331685399 Mean position: -0,09055496398398276
+ Std positon: 0,1374670541201138 Std positon: 0,009223424044972126
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:40
+Dimentions:2
+Iteration number:20
+A:0,25
+C:0,5
+P:0,4
+Mean: 0,030913769344534586
+Std: 0,05738431409941207
+ Mean position: 0,004962570908419771 Mean position: -0,00028180695893927136
+ Std positon: 0,00011073299548035873 Std positon: 0,00019147285682254712
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:40
+Dimentions:2
+Iteration number:40
+A:0,25
+C:0,5
+P:0,6
+Mean: 0,009357871695085174
+Std: 0,01813573401186124
+ Mean position: 0,0002401316852648114 Mean position: 0,00014784866447519187
+ Std positon: 4,3530133797993564E-05 Std positon: 0,0002055867309501219
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:40
+Dimentions:2
+Iteration number:60
+A:0,2
+C:0,7
+P:0,8
+Mean: 0,0038137887410517506
+Std: 0,0039811405690162935
+ Mean position: -1,7069122784458252E-05 Mean position: 3,633794665556445E-05
+ Std positon: 4,9146120879376814E-05 Std positon: 3,326814686768989E-05
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:40
+Dimentions:2
+Iteration number:80
+A:0,2
+C:0,8
+P:0,7
+Mean: 0,0017831322083616782
+Std: 0,0014742618858513171
+ Mean position: 1,901607159315152E-05 Mean position: 2,494279159639287E-05
+ Std positon: 7,788952313156673E-06 Std positon: 3,1139823618315335E-05
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:80
+Dimentions:2
+Iteration number:5
+A:0,02
+C:0,1
+P:0,7
+Mean: 0,10658255380651865
+Std: 0,0022667190442823377
+ Mean position: -0,018790856376244634 Mean position: 0,040578753073711414
+ Std positon: 0,07170154135609451 Std positon: 0,13401345452029986
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:80
+Dimentions:2
+Iteration number:10
+A:0,02
+C:0,1
+P:0,7
+Mean: 0,10891946915321228
+Std: 0,003138013810021331
+ Mean position: -0,11221613364195218 Mean position: -0,09104692482285545
+ Std positon: 0,1330319170611779 Std positon: 0,019694143878144048
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:80
+Dimentions:2
+Iteration number:20
+A:0,25
+C:0,5
+P:0,5
+Mean: 0,03781500798883731
+Std: 0,08183456181291004
+ Mean position: -0,0037875652164660227 Mean position: -9,536297685128314E-05
+ Std positon: 0,0003092302873577846 Std positon: 0,0004231632454576205
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:80
+Dimentions:2
+Iteration number:40
+A:0,25
+C:0,6
+P:0,4
+Mean: 0,0072185549276389625
+Std: 0,007059208005603826
+ Mean position: -8,543419679729598E-05 Mean position: 0,00011923515983437313
+ Std positon: 6,152853438181814E-05 Std positon: 0,00013896611702511242
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:80
+Dimentions:2
+Iteration number:60
+A:0,15
+C:0,8
+P:0,7
+Mean: 0,005014800998553413
+Std: 0,002533340601075417
+ Mean position: -2,2231742668646616E-06 Mean position: 8,000060967658796E-06
+ Std positon: 1,3380836830416828E-05 Std positon: 3,1961150450489005E-06
+
+
+
+Name: Rastrigin
+Test number: 200
+Population size:80
+Dimentions:2
+Iteration number:80
+A:0,2
+C:0,6
+P:0,4
+Mean: 0,0023057197470553454
+Std: 0,0034309111120022382
+ Mean position: 5,7217432390471506E-06 Mean position: 4,3702258083824707E-05
+ Std positon: 0,00019232885463781483 Std positon: 0,00017052090712170424
+

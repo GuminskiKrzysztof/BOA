@@ -14,10 +14,10 @@ namespace BOA
         public double FBest { get; set; }
         public int NumberOfEvaluationFitnessFunction { get; set; }
 
-        private int[,] range;
-        private double[,] population;
-        private int population_size;
-        private int dim;
+        private double[][] range;
+        private double[][] population;
+        private int populationSize;
+        private int dimentions;
         private int iterations;
         private double[] Ii;
         private double[] Fi;
@@ -25,38 +25,36 @@ namespace BOA
         private double initial_a;
         private double c;
         private double p;
-        Func<double[], double> test_func;
+        private Random rand;
+        Func<double[], double> testFunction;
 
-        public Butterfly(Func<double[], double> myFuncion,int dim_in,int iterations_in, int range_min,int range_max,int population_size_in,double a_in, double c_in,double p_in)
+        public Butterfly(Func<double[], double> myFuncion,int dim_in,int iterations_in, double[][] range_in ,int population_size_in,double a_in, double c_in,double p_in)
         {   
-            Name = "Butterfly optimization algorithm";
-
-            population_size = population_size_in;
-            dim = dim_in;
+            Name = "BOA";
+            populationSize = population_size_in;
+            dimentions = dim_in;
             a = a_in;
             initial_a = a;
             c = c_in;
             p = p_in;
             iterations = iterations_in;
-            test_func = myFuncion;
-
-            range = new int[dim, 2];
-            for (int i = 0; i < dim; i++)
-            {
-                range[i, 0] = range_min;
-                range[i, 1] = range_max;
-            }
+            testFunction = myFuncion;
+            range = range_in;
+            rand = new Random();
         }
         private void  CreatePopulation()
         {
-           
-            Random rand = new Random();
-            population = new double[population_size,dim];
-            for (int i = 0; i < population_size; i++)
+            population = new double[populationSize][];
+            for (int i = 0; i < populationSize; i++)
             {
-                for (int j = 0; j < dim; j++)
+                population[i] = new double[dimentions];
+            }
+
+            for (int i = 0; i < populationSize; i++)
+            {
+                for (int j = 0; j < dimentions; j++)
                 {
-                    population[i,j] = rand.NextDouble() * (range[j,1] - range[j, 0]) + range[j, 0];
+                    population[i][j] = rand.NextDouble() * (range[j][1] - range[j][0]) + range[j][0];
                 }
             }
         }
@@ -64,102 +62,73 @@ namespace BOA
         private void FindBest()
         {
             FBest = Fi[0];
-            double[] row = new double[population.GetLength(1)];
-            for (int j = 0; j < population.GetLength(1); j++)
-            {
-                row[j] = population[0, j];
-            }
-            XBest = row;
-            for (int i = 0; i < population_size; i++)
+            XBest = population[0];
+            for (int i = 0; i < populationSize; i++)
             {
                 if (Fi[i] < FBest)
                 {
                     FBest = Fi[i];
-                    for (int j = 0; j < population.GetLength(1); j++)
-                    {
-                        row[j] = population[i, j];
-                    }
-                    XBest = (double[])row.Clone();
+                    XBest = population[i];
                 }
-                
-            }
-        }
-        private void CalculateFragrance()
-        {
-            for (int i = 0; i < population_size; i++)
-            {
-
-                Fi[i] = c * Math.Pow(Ii[i],a);
             }
         }
 
         private void CalculateNextPosition()
         {
-            Random rand = new Random();
-            double r;
-            double[] pop = new double[dim];
+            double randomDecision;
+            double[] newPopulation = new double[dimentions];
             int rand_butterfly;
-            for ( int i = 0; i < population_size; i++)
+            for ( int i = 0; i < populationSize; i++)
             {
             
-                r = rand.NextDouble();
-                if (p > r)
+                randomDecision = rand.NextDouble();
+                if (p > randomDecision)
                 {
-                    for( int j = 0; j < dim;j++)
+                    for( int j = 0; j < dimentions; j++)
                     {
-                        pop[j] = population[i, j] + (Math.Pow(r,2)* XBest[j] - population[i, j]) * Fi[i];
+                        newPopulation[j] = population[i][j] + (Math.Pow(randomDecision,2)* XBest[j] - population[i][j]) * Fi[i];
                     }
                 }
                 else 
                 {
-                    rand_butterfly = rand.Next(population_size);
-                    for (int j = 0; j < dim; j++)
+                    rand_butterfly = rand.Next(populationSize);
+                    for (int j = 0; j < dimentions; j++)
                     {
-                        pop[j] = population[i, j] + (Math.Pow(r, 2) * population[rand_butterfly, j] - population[i, j]) * Fi[i];
+                        newPopulation[j] = population[i][j] + (Math.Pow(randomDecision, 2) * population[rand_butterfly][j] - population[i][j]) * Fi[i];
                     }
                 }
-                if(Ii[i] > test_func(pop))
+                if(Ii[i] > testFunction(newPopulation))
                 {
-                    for (int t = 0; t < dim;t++)
-                    {
-                        population[i, t] = pop[t];
-                    }
+                    population[i] = newPopulation;
                 }
-            }
-        }
-
-        private void CalculateI()
-        {
-            for (int i = 0; i < population_size; i++)
-            {
-                double[] row = new double[population.GetLength(1)];
-                for (int j = 0; j < population.GetLength(1); j++)
-                {
-                    row[j] = population[i, j];
-                }
-                Ii[i] = test_func(row);
             }
         }
 
         public double Solve()
         {
             CreatePopulation();
-            Ii = new double[population_size];
-            Fi = new double[population_size];
+
+            Ii = new double[populationSize];
+            Fi = new double[populationSize];
             
-
-
             for (int i = 0;i < iterations; i ++)
             {
-                CalculateI();
-                CalculateFragrance();
+                /// Calcualte stimulus intensity
+                for (int j = 0; j < populationSize; j++)
+                {
+                    Ii[j] = testFunction(population[j]);
+                }
+                ///Calcuate perceived magnitude of the fragrance
+                for (int j = 0; j < populationSize; j++)
+                {
+                    Fi[j] = c * Math.Pow(Ii[j], a);
+                }
+
                 FindBest();
                 CalculateNextPosition();
 
-                a = initial_a  + (i / (double)iterations) * initial_a * 2;
-
+                a = initial_a + Math.Pow((i / (double)iterations), 2) * initial_a * 2;
             }
-
             return FBest;
         }
     }
