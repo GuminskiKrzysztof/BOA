@@ -80,13 +80,12 @@ namespace BOA
             int rand_butterfly;
             for ( int i = 0; i < populationSize; i++)
             {
-            
                 randomDecision = rand.NextDouble();
                 if (p > randomDecision)
                 {
                     for( int j = 0; j < dimentions; j++)
                     {
-                        newPopulation[j] = population[i][j] + (Math.Pow(randomDecision,2)* XBest[j] - population[i][j]) * Fi[i];
+                        newPopulation[j] = population[i][j] + (rand.NextDouble() * rand.NextDouble() * XBest[j] - population[i][j]) * Fi[i];
                     }
                 }
                 else 
@@ -94,9 +93,10 @@ namespace BOA
                     rand_butterfly = rand.Next(populationSize);
                     for (int j = 0; j < dimentions; j++)
                     {
-                        newPopulation[j] = population[i][j] + (Math.Pow(randomDecision, 2) * population[rand_butterfly][j] - population[i][j]) * Fi[i];
+                        newPopulation[j] = population[i][j] + (rand.NextDouble() * rand.NextDouble() * population[rand_butterfly][j] - population[i][j]) * Fi[i];
                     }
                 }
+               
                 if(Ii[i] > testFunction(newPopulation))
                 {
                     population[i] = newPopulation;

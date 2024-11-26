@@ -6,4 +6,7 @@
     <UpgradeBackupLocation>C:\Users\domin\Desktop\STUDIA\Sem. V\Zastosowanie_metod_sztucznej_inteligencji\BOA\Backup\BOA\</UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
+  </ItemGroup>
 </Project>

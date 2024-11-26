@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CsvHelper;
+using System.Globalization;
+using System.IO;
+
 namespace BOA
 {
     public class OptimizationResult
@@ -27,6 +31,41 @@ namespace BOA
             BestPositions = new double[2];
             MeanPos = new double[2];
             StdPos = new double[2];
+        }
+
+        public void SaveToCsv(string filePath)
+        {
+            bool fileExists = File.Exists(filePath);
+
+            using (var writer = new StreamWriter(filePath, append: true))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                if (!fileExists)
+                {
+                    csv.WriteHeader<OptimizationResult>();
+                    csv.NextRecord();
+                }
+
+                var record = new
+                {
+                    name = this.name,
+                    testNumber = this.testNumber,
+                    a = this.a,
+                    c = this.c,
+                    p = this.p,
+                    dimentions = this.dimentions,
+                    populationSize = this.populationSize,
+                    iterationNumber = this.iterationNumber,
+                    MeanResult = this.MeanResult,
+                    StdResult = this.StdResult,
+                    MeanPos = string.Join(";", this.MeanPos), 
+                    StdPos = string.Join(";", this.StdPos), 
+                    BestPositions = string.Join(";", this.BestPositions)
+                };
+
+                csv.WriteRecord(record);
+                csv.NextRecord();
+            }
         }
     }
 
@@ -54,13 +93,13 @@ namespace BOA
             return ret;
         }
 
-        public static double Rosenbrock(double[] xi)
+        public static double Beale (double[] xi)
         {
             return Math.Pow((1.5 - xi[0] + xi[0] * xi[1]), 2) + Math.Pow((2.25 - xi[0] + xi[0] * Math.Pow(xi[1], 2)), 2) +
                 Math.Pow((2.625 - xi[0] + xi[0] * Math.Pow(xi[1], 3)), 2);
         }
 
-        public static double Beale(double[] xi)
+        public static double Rosenbrock(double[] xi)
         {
             double ret = 0;
             for (int i = 0; i < xi.Length - 1; i++)
